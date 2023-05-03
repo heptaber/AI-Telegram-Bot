@@ -1,3 +1,7 @@
+"""
+    Message Handler Filters implementations.
+"""
+
 from aiogram.dispatcher.filters import BoundFilter
 from aiogram.types import Message
 
@@ -11,10 +15,8 @@ class MentionedMe(BoundFilter):
     async def check(self, message: Message) -> bool:
         bot_info = await message.bot.get_me()
         if self.replied_only:
-            # Проверяем, что сообщение является ответом на сообщение бота
             return message.reply_to_message and message.reply_to_message.from_user.id == message.bot.id and message.text and f"@{bot_info.username}" in message.text
         else:
-            # Проверяем, что бот был упомянут в тексте сообщения
             return message.text and f"@{bot_info.username}" in message.text
 
 
