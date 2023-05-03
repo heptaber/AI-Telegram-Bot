@@ -1,1 +1,5 @@
+.vscode/*
+.history/
 env/
+__pycache__/
+log/*
