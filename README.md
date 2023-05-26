@@ -27,6 +27,12 @@ pip3 install -r requirements.txt
 python3 davinci.py &
 ```
 
+## To kill process
+
+```sh
+kill -9 $(ps aux | grep 'danvinci.py' | awk '{print $2}')
+```
+
 ## To run after reboot
 
 Copy file to bin folder:
